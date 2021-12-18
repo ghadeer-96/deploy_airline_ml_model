@@ -40,7 +40,10 @@ def predict():
     final = final.astype('int')
     # Get the model's prediction
     prediction = model.predict(final)[0]
-    return flask.render_template('home.html',pred='Expected satisfaction {} $'.format(prediction))
+	if prediction:
+		return flask.render_template('home.html',pred='satisfied :)')
+	else:
+		return flask.render_template('home.html',pred='not satisfied :(')
 
     
 
